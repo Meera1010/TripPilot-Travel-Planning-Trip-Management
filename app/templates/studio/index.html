@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Virtual Outfit Studio - StyleForge{% endblock %}
+{% block page_title %}Virtual Outfit Studio Workspace{% endblock %}
+
+{% block content %}
+<div class="studio-layout" style="margin:-32px;height:calc(100vh - 68px);">
+  <!-- Left Sidebar: Garment Presets & Component Drawer -->
+  <aside class="studio-sidebar-left">
+    <div class="studio-tab-header">
+      <div class="studio-tab-btn active">Garments & Outfits</div>
+    </div>
+
+    <div style="padding:16px;">
+      <label class="form-label" style="margin-bottom:8px;display:block;">Select Category</label>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <button class="btn btn-secondary btn-sm preset-item" data-category="saree" style="justify-content:flex-start;">
+          <i class="ph-bold ph-sparkle"></i> Banarasi Saree & Blouse
+        </button>
+        <button class="btn btn-secondary btn-sm preset-item" data-category="kurti" style="justify-content:flex-start;">
+          <i class="ph-bold ph-t-shirt"></i> Anarkali Silk Kurti
+        </button>
+        <button class="btn btn-secondary btn-sm preset-item" data-category="dress" style="justify-content:flex-start;">
+          <i class="ph-bold ph-coat-hanger"></i> Couture Evening Dress
+        </button>
+        <button class="btn btn-secondary btn-sm preset-item" data-category="shirt" style="justify-content:flex-start;">
+          <i class="ph-bold ph-t-shirt"></i> Button-Down Shirt
+        </button>
+        <button class="btn btn-secondary btn-sm preset-item" data-category="skirt" style="justify-content:flex-start;">
+          <i class="ph-bold ph-t-shirt"></i> Pleated Midi Skirt
+        </button>
+        <button class="btn btn-secondary btn-sm preset-item" data-category="jacket" style="justify-content:flex-start;">
+          <i class="ph-bold ph-coat-hanger"></i> Leather Biker Jacket
+        </button>
+        <button class="btn btn-secondary btn-sm preset-item" data-category="trousers" style="justify-content:flex-start;">
+          <i class="ph-bold ph-pants"></i> Tailored Trousers
+        </button>
+        <button class="btn btn-secondary btn-sm preset-item" data-category="gown" style="justify-content:flex-start;">
+          <i class="ph-bold ph-crown"></i> Royal Ball Gown
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Center Canvas Workbench -->
+  <main class="studio-workbench">
+    <div class="canvas-toolbar">
+      <input type="text" id="design-title-input" value="Imperial Banarasi Outfit" class="form-control" style="width:200px;height:32px;font-size:0.85rem;background:none;border-color:transparent;" placeholder="Design Title...">
+      <div style="height:20px;width:1px;background:var(--border-color);"></div>
+      <button class="canvas-tool-btn" onclick="studioEngine.undo()" title="Undo"><i class="ph-bold ph-arrow-u-up-left"></i></button>
+      <button class="canvas-tool-btn" onclick="studioEngine.redo()" title="Redo"><i class="ph-bold ph-arrow-u-up-right"></i></button>
+      <div style="height:20px;width:1px;background:var(--border-color);"></div>
+      <button class="canvas-tool-btn" onclick="studioEngine.removeSelectedLayer()" title="Delete Layer"><i class="ph-bold ph-trash"></i></button>
+      <button class="canvas-tool-btn" onclick="ExportManager.exportCanvasAsPNG(studioEngine.canvas)" title="Download PNG"><i class="ph-bold ph-download-simple"></i></button>
+      <div style="height:20px;width:1px;background:var(--border-color);"></div>
+      <button id="save-design-btn" class="btn btn-primary btn-sm"><i class="ph-bold ph-floppy-disk"></i> Save Design</button>
+      <button id="export-techpack-btn" class="btn btn-outline btn-sm"><i class="ph-bold ph-file-text"></i> Export Tech Pack</button>
+    </div>
+
+    <div class="canvas-wrapper">
+      <canvas id="studio-canvas" width="800" height="1000" style="width:520px;height:650px;cursor:crosshair;"></canvas>
+    </div>
+  </main>
+
+  <!-- Right Property Inspector & Layer Stack -->
+  <aside class="studio-sidebar-right">
+    <div>
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:12px;">Layer Inspector</h3>
+      <div id="studio-layer-list" class="layer-list">
+        <!-- Rendered by studio.js -->
+      </div>
+    </div>
+
+    <div style="border-top:1px solid var(--border-color);padding-top:16px;">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:12px;">Garment Styling</h3>
+      <div class="form-group">
+        <label class="form-label">Base Color</label>
+        <input type="color" id="layer-color-picker" value="#d90429" style="width:100%;height:40px;border:none;border-radius:var(--radius-md);cursor:pointer;background:none;">
+      </div>
+    </div>
+  </aside>
+</div>
+{% endblock %}

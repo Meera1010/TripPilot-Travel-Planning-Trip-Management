@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block page_title %}Trip Budget & Group Expense Splitting{% endblock %}
+
+{% block content %}
+<div class="expenses-workspace">
+    <div class="expenses-summary-row">
+        <div class="summary-card">
+            <span>Total Trip Expense</span>
+            <h3 id="exp-total">$0.00</h3>
+        </div>
+        <div class="summary-card">
+            <span>Your Share</span>
+            <h3 id="exp-user-share">$0.00</h3>
+        </div>
+        <div class="summary-card">
+            <span>Active Debt Settlements</span>
+            <h3 id="exp-settlements-count">0 Outstanding</h3>
+        </div>
+    </div>
+
+    <div class="expenses-grid">
+        <div class="card expenses-table-card">
+            <div class="card-header">
+                <h3>Logged Expenses</h3>
+                <button class="btn btn-sm btn-primary" id="btn-add-expense">+ Log Expense</button>
+            </div>
+            <div class="card-body p-0">
+                <table class="table" id="expenses-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Paid By</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expenses-tbody">
+                        <!-- Populated by expensesModule.js -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card settlements-card">
+            <div class="card-header">
+                <h3>Group Debt Settlement</h3>
+                <span class="badge badge-success">Greedy Graph Solver</span>
+            </div>
+            <div class="card-body" id="settlements-container">
+                <!-- Settlements list -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/modules/expensesModule.js') }}"></script>
+{% endblock %}

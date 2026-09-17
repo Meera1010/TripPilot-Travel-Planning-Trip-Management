@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block page_title %}Measurements & Technical Spec Sheet Builder{% endblock %}
+
+{% block content %}
+<div id="sizing-wrapper">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+    <div>
+      <h2 style="font-size:1.4rem;font-weight:700;">Measurement Profiles & Tech Specs</h2>
+      <p style="font-size:0.875rem;color:var(--text-secondary);">Custom body measurement charts, points of measure (POM), seam allowances, and grading matrices (XS to XXL)</p>
+    </div>
+    <button class="btn btn-primary" onclick="openModal('modal-add-profile')"><i class="ph-bold ph-plus"></i> New Size Profile</button>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden;">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Profile Name</th>
+          <th>Gender</th>
+          <th>Bust / Chest</th>
+          <th>Waist</th>
+          <th>Hips</th>
+          <th>Height</th>
+          <th>Standard Size</th>
+        </tr>
+      </thead>
+      <tbody id="profiles-tbody">
+        <!-- Loaded dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

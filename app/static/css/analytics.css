@@ -1,0 +1,15 @@
+.analytics-workspace {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.analytics-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.chart-card {
+    min-height: 380px;
+}

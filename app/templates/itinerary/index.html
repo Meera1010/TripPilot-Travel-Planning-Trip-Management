@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block page_title %}Day-by-Day Itinerary Builder{% endblock %}
+
+{% block content %}
+<div class="itinerary-workspace">
+    <div class="itinerary-header">
+        <div class="trip-selector">
+            <label>Select Active Trip:</label>
+            <select id="select-active-trip" class="form-control">
+                <!-- Dynamically populated -->
+            </select>
+        </div>
+        <button class="btn btn-primary" id="btn-add-activity">+ Add Activity</button>
+    </div>
+
+    <div class="itinerary-grid">
+        <div class="days-column" id="itinerary-days-container">
+            <!-- Rendered by itineraryModule.js -->
+        </div>
+
+        <div class="map-column">
+            <div class="card map-card">
+                <div class="card-header">
+                    <h3>Day Route & Activity Pins</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div id="itinerary-map" style="height: 520px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/engine/MapEngine.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modules/itineraryModule.js') }}"></script>
+{% endblock %}

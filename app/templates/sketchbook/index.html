@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block page_title %}Digital Fashion Croquis Sketchbook{% endblock %}
+
+{% block content %}
+<div class="sketch-workspace">
+  <!-- Left Tools Palette -->
+  <div class="sketch-toolbar">
+    <button class="canvas-tool-btn active" title="Pen Tool"><i class="ph-bold ph-pencil"></i></button>
+    <button class="canvas-tool-btn" title="Highlighter"><i class="ph-bold ph-paint-brush"></i></button>
+    <button id="clear-sketch-btn" class="canvas-tool-btn" title="Clear Canvas"><i class="ph-bold ph-eraser"></i></button>
+  </div>
+
+  <!-- Drawing Canvas -->
+  <div class="sketch-canvas-container">
+    <canvas id="sketchbook-canvas" width="600" height="800" style="border:1px solid #eee;cursor:crosshair;"></canvas>
+  </div>
+</div>
+{% endblock %}

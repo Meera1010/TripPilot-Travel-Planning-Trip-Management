@@ -1,0 +1,15 @@
+.leaflet-container {
+    background-color: #111827 !important;
+    border-radius: var(--radius-lg);
+}
+
+.leaflet-popup-content-wrapper {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.leaflet-popup-tip {
+    background-color: var(--bg-card) !important;
+}

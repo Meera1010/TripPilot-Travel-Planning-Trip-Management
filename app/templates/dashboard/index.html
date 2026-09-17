@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block page_title %}Travel Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-grid">
+    <!-- Top Stats Cards -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-icon icon-blue">🗺️</div>
+            <div class="stat-info">
+                <span class="stat-label">Active & Planned Trips</span>
+                <h3 id="stat-active-trips">--</h3>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon icon-green">💳</div>
+            <div class="stat-info">
+                <span class="stat-label">Total Spend Logged</span>
+                <h3 id="stat-total-spent">$0.00</h3>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon icon-purple">🏙️</div>
+            <div class="stat-info">
+                <span class="stat-label">Destinations Visited</span>
+                <h3 id="stat-destinations">--</h3>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon icon-amber">🌳</div>
+            <div class="stat-info">
+                <span class="stat-label">Carbon Footprint (CO₂)</span>
+                <h3 id="stat-co2">-- kg</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Trips & Open Map Section -->
+    <div class="dashboard-main-row">
+        <div class="card trip-list-card">
+            <div class="card-header">
+                <h3>My Upcoming Journeys</h3>
+                <a href="{{ url_for('main.trips') }}" class="btn btn-sm btn-outline">View All</a>
+            </div>
+            <div class="card-body" id="dashboard-trips-container">
+                <div class="empty-state">Loading your trips...</div>
+            </div>
+        </div>
+
+        <div class="card map-preview-card">
+            <div class="card-header">
+                <h3>Interactive Destination Map</h3>
+                <span class="badge">OpenStreetMap / Leaflet</span>
+            </div>
+            <div class="card-body p-0">
+                <div id="dashboard-map" style="height: 380px; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/engine/MapEngine.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modules/dashboardModule.js') }}"></script>
+{% endblock %}

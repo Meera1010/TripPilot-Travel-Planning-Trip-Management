@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block page_title %}Designer Haute Couture Portfolio Showcase{% endblock %}
+
+{% block content %}
+<div>
+  <div class="card" style="margin-bottom:28px;background:linear-gradient(135deg, #1d2030, #13151f);">
+    <h2 id="portfolio-designer-name" style="font-size:1.8rem;font-weight:700;margin-bottom:8px;">Designer Portfolio</h2>
+    <p id="portfolio-bio" style="font-size:1rem;color:var(--text-secondary);">Haute couture portfolio showcase</p>
+  </div>
+
+  <div id="portfolio-items-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:24px;">
+    <!-- Loaded dynamically -->
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block page_title %}Fashion Moodboards & Color Harmony Generator{% endblock %}
+
+{% block content %}
+<div>
+  <div style="display:grid;grid-template-columns: 2fr 1fr;gap:24px;">
+    <!-- Moodboards Grid -->
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <h2 style="font-size:1.4rem;font-weight:700;">Inspiration Moodboards</h2>
+        <button class="btn btn-primary btn-sm"><i class="ph-bold ph-plus"></i> New Moodboard</button>
+      </div>
+      <div id="moodboard-container" class="moodboard-grid">
+        <!-- Loaded dynamically -->
+      </div>
+    </div>
+
+    <!-- Color Harmony Tool -->
+    <div class="card" style="height:fit-content;">
+      <h3 class="card-title" style="margin-bottom:16px;"><i class="ph-bold ph-palette" style="color:var(--accent-gold);"></i> Color Harmony Generator</h3>
+      <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:16px;">Generate Pantone-matched color schemes for your fashion collections.</p>
+      
+      <div class="form-group">
+        <label class="form-label">Base Fabric Color</label>
+        <input type="color" id="harmony-base-color" value="#d90429" style="width:100%;height:44px;border:none;cursor:pointer;background:none;">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Harmony Formula</label>
+        <select id="harmony-type-select" class="form-control">
+          <option value="analogous">Analogous (Harmonious Neighbor Colors)</option>
+          <option value="monochromatic">Monochromatic (Shades & Tints)</option>
+          <option value="complementary">Complementary (High Contrast Pop)</option>
+        </select>
+      </div>
+      <button id="btn-generate-harmony" class="btn btn-primary" style="width:100%;margin-bottom:20px;">Generate Palette</button>
+
+      <div id="harmony-result-swatches" style="display:flex;gap:8px;">
+        <!-- Swatches generated here -->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

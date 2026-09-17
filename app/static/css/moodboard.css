@@ -1,0 +1,42 @@
+/* Moodboard Visual Workspace CSS */
+.moodboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.moodboard-card {
+  height: 320px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  transition: transform var(--transition-fast);
+}
+
+.moodboard-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+}
+
+.moodboard-preview-canvas {
+  height: 220px;
+  background: #12131C;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-swatch-bar {
+  display: flex;
+  height: 12px;
+  width: 100%;
+}
+
+.color-swatch-item {
+  flex: 1;
+  height: 100%;
+}

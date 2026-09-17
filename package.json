@@ -1,0 +1,23 @@
+{
+  "name": "trippilot-travel-saas",
+  "version": "1.0.0",
+  "description": "TripPilot Travel Planning & Trip Management SaaS Enterprise Web Application",
+  "main": "main.py",
+  "scripts": {
+    "start": "python main.py",
+    "dev": "python main.py",
+    "build": "python -m compileall app/",
+    "test": "pytest --cov=app tests/"
+  },
+  "keywords": [
+    "travel-planner",
+    "trip-management",
+    "itinerary-builder",
+    "expense-splitter",
+    "leaflet-maps",
+    "python-flask"
+  ],
+  "author": "Meera1010",
+  "license": "UNLICENSED",
+  "private": true
+}

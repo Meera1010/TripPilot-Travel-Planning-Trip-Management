@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block page_title %}Packing List & Luggage Weight Manager{% endblock %}
+
+{% block content %}
+<div class="packing-workspace">
+    <div class="packing-actions">
+        <button class="btn btn-outline" id="btn-auto-pack">✨ Auto-Generate by Climate</button>
+        <button class="btn btn-primary" id="btn-add-packing-item">+ Add Item</button>
+    </div>
+
+    <div class="packing-grid" id="packing-lists-container">
+        <!-- Rendered by packingModule.js -->
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/modules/packingModule.js') }}"></script>
+{% endblock %}

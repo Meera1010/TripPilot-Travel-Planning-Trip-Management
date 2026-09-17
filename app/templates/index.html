@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripPilot - Smart Travel Planning & Trip Management SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+</head>
+<body class="landing-body">
+    <nav class="landing-nav">
+        <div class="brand">
+            <span class="logo-icon">✈️</span>
+            <span class="brand-name">TripPilot</span>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('main.login') }}" class="btn btn-outline">Sign In</a>
+            <a href="{{ url_for('main.register') }}" class="btn btn-primary">Start Free Trial</a>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <span class="hero-pill">✨ The Ultimate Travel SaaS Studio</span>
+            <h1>Plan, Budget & Co-Pilot Your Worldwide Journeys</h1>
+            <p>Interactive itineraries, group expense splitting, live open maps, automated packing checklists, and carbon footprint tracking in one modern platform.</p>
+            <div class="hero-actions">
+                <a href="{{ url_for('main.register') }}" class="btn btn-lg btn-primary">Create Your First Trip 🚀</a>
+                <a href="{{ url_for('main.login') }}" class="btn btn-lg btn-outline">Explore Demo Account</a>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block page_title %}Team Collaboration & Activity Workspace{% endblock %}
+
+{% block content %}
+<div id="collab-wrapper">
+  <div style="display:grid;grid-template-columns: 1fr 2fr;gap:24px;">
+    <!-- Team Members List -->
+    <div class="card">
+      <h3 class="card-title" style="margin-bottom:16px;">Team Atelier Members</h3>
+      <div id="team-members-list">
+        <!-- Loaded dynamically -->
+      </div>
+    </div>
+
+    <!-- Live Activity Feed -->
+    <div class="card">
+      <h3 class="card-title" style="margin-bottom:16px;">Live Design Activity Feed</h3>
+      <div id="activity-feed-list">
+        <!-- Loaded dynamically -->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_title %}Travel Journal & Photo Memories{% endblock %}
+
+{% block content %}
+<div class="journal-workspace">
+    <div class="journal-feed" id="journal-feed-container">
+        <!-- Rendered by journalModule.js -->
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/modules/journalModule.js') }}"></script>
+{% endblock %}

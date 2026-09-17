@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block page_title %}Fashion Collections & Runway Management{% endblock %}
+
+{% block content %}
+<div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+    <div>
+      <h2 style="font-size:1.5rem;font-weight:700;">Runway & Season Collections</h2>
+      <p style="font-size:0.875rem;color:var(--text-secondary);">Organize garment looks by runway season, launch dates, and production budgets</p>
+    </div>
+    <button class="btn btn-primary" onclick="openModal('modal-new-collection')"><i class="ph-bold ph-plus"></i> New Collection</button>
+  </div>
+
+  <div id="collections-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:24px;">
+    <!-- Loaded dynamically -->
+  </div>
+</div>
+
+<!-- New Collection Modal -->
+<div id="modal-new-collection" class="modal-overlay">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+      <h3 style="font-size:1.2rem;font-weight:700;">Create Runway Collection</h3>
+      <button onclick="closeModal('modal-new-collection')" style="font-size:1.2rem;color:var(--text-muted);">&times;</button>
+    </div>
+    <form id="create-collection-form">
+      <div class="form-group">
+        <label class="form-label">Collection Name</label>
+        <input type="text" name="name" class="form-control" placeholder="e.g. Royal Heritage Bridal 2026" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Season</label>
+        <select name="season" class="form-control">
+          <option value="Spring/Summer">Spring/Summer</option>
+          <option value="Autumn/Winter">Autumn/Winter</option>
+          <option value="Bridal/Couture">Bridal/Couture</option>
+          <option value="Resort">Resort</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Year</label>
+        <input type="number" name="year" class="form-control" value="2026" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Theme</label>
+        <input type="text" name="theme" class="form-control" placeholder="Theme inspiration...">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea name="description" class="form-control" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Create Collection</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

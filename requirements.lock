@@ -1,0 +1,12 @@
+# TripPilot SaaS Frozen Lockfile
+Flask==2.3.2
+Flask-SQLAlchemy==3.0.3
+Werkzeug==2.3.6
+pytest==7.3.2
+pytest-cov==4.1.0
+Pillow==9.5.0
+SQLAlchemy==2.0.15
+MarkupSafe==2.1.2
+Jinja2==3.1.2
+itsdangerous==2.1.2
+click==8.1.3

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block page_title %}Garment Production Cost Calculator & BOM{% endblock %}
+
+{% block content %}
+<div id="costing-wrapper">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+    <div>
+      <h2 style="font-size:1.4rem;font-weight:700;">Bill of Materials (BOM) & Pricing</h2>
+      <p style="font-size:0.875rem;color:var(--text-secondary);">Itemized fabric, trims, tailor labor hours, cutting waste, and wholesale/retail profit margins</p>
+    </div>
+    <button class="btn btn-primary" onclick="openModal('modal-add-cost-item')"><i class="ph-bold ph-plus"></i> Add BOM Item</button>
+  </div>
+
+  <!-- Pricing KPI Cards -->
+  <div class="metrics-grid" style="margin-bottom:24px;">
+    <div class="metric-card">
+      <div class="metric-icon"><i class="ph-bold ph-scissors"></i></div>
+      <div>
+        <div id="cost-total-est" class="metric-value">$0.00</div>
+        <div class="metric-label">Total Estimated Cost</div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon" style="background:rgba(58,134,255,0.1);color:var(--accent-blue);"><i class="ph-bold ph-tag"></i></div>
+      <div>
+        <div id="cost-wholesale" class="metric-value">$0.00</div>
+        <div class="metric-label">Wholesale Price</div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon" style="background:rgba(233,196,106,0.1);color:var(--accent-gold);"><i class="ph-bold ph-currency-dollar"></i></div>
+      <div>
+        <div id="cost-retail" class="metric-value">$0.00</div>
+        <div class="metric-label">Suggested Retail Price</div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon" style="background:rgba(42,157,143,0.1);color:var(--accent-teal);"><i class="ph-bold ph-percent"></i></div>
+      <div>
+        <div id="cost-margin" class="metric-value">0%</div>
+        <div class="metric-label">Calculated Profit Margin</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns: repeat(3, 1fr);gap:16px;margin-bottom:24px;">
+    <div class="card" style="text-align:center;">
+      <span style="font-size:0.8rem;color:var(--text-muted);">Total Fabric Cost</span>
+      <h3 id="cost-fabric-sum" style="font-size:1.4rem;font-weight:700;">$0.00</h3>
+    </div>
+    <div class="card" style="text-align:center;">
+      <span style="font-size:0.8rem;color:var(--text-muted);">Total Material & Trims Cost</span>
+      <h3 id="cost-material-sum" style="font-size:1.4rem;font-weight:700;">$0.00</h3>
+    </div>
+    <div class="card" style="text-align:center;">
+      <span style="font-size:0.8rem;color:var(--text-muted);">Total Tailor Labor Cost</span>
+      <h3 id="cost-labor-sum" style="font-size:1.4rem;font-weight:700;">$0.00</h3>
+    </div>
+  </div>
+
+  <!-- Itemized Table -->
+  <div class="card" style="padding:0;overflow:hidden;">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Item Description</th>
+          <th>Quantity</th>
+          <th>Unit Cost</th>
+          <th>Waste %</th>
+          <th>Total Cost</th>
+        </tr>
+      </thead>
+      <tbody id="cost-items-tbody">
+        <!-- Loaded dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal Add BOM Item -->
+<div id="modal-add-cost-item" class="modal-overlay">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+      <h3 style="font-size:1.2rem;font-weight:700;">Add BOM Cost Item</h3>
+      <button onclick="closeModal('modal-add-cost-item')" style="font-size:1.2rem;color:var(--text-muted);">&times;</button>
+    </div>
+    <form id="add-cost-item-form">
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <select name="item_type" class="form-control">
+          <option value="fabric">Fabric</option>
+          <option value="material">Material / Trim</option>
+          <option value="labor">Labor</option>
+          <option value="overhead">Overhead / Packaging</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Item Description</label>
+        <input type="text" name="item_name" class="form-control" placeholder="e.g. Master Tailor Cutting Labor" required>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="form-group">
+          <label class="form-label">Quantity</label>
+          <input type="number" step="0.1" name="quantity" class="form-control" value="1.0" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Unit Cost ($)</label>
+          <input type="number" step="0.5" name="unit_cost" class="form-control" value="15.0" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Cutting Waste Allowance (%)</label>
+        <input type="number" step="1" name="waste_allowance_pct" class="form-control" value="10">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Add Item</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

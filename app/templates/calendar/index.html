@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block page_title %}Fashion Calendar & Production Deadlines{% endblock %}
+
+{% block content %}
+<div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+    <div>
+      <h2 style="font-size:1.4rem;font-weight:700;">Fashion Calendar</h2>
+      <p style="font-size:0.875rem;color:var(--text-secondary);">Runway shows, fitting sessions, photo shoots, and fabric delivery deadlines</p>
+    </div>
+    <button class="btn btn-primary" onclick="openModal('modal-new-event')"><i class="ph-bold ph-plus"></i> New Event</button>
+  </div>
+
+  <div id="calendar-events-list">
+    <!-- Loaded dynamically -->
+  </div>
+</div>
+{% endblock %}

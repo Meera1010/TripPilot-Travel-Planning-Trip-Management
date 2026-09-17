@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block page_title %}Trip Planner & Management{% endblock %}
+
+{% block content %}
+<div class="trips-container">
+    <div class="action-bar">
+        <div class="search-box">
+            <input type="text" id="trip-search" class="form-control" placeholder="Search trips by destination, title...">
+        </div>
+
+        <div class="filter-group">
+            <select id="filter-status" class="form-control">
+                <option value="">All Statuses</option>
+                <option value="planning">Planning</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="completed">Completed</option>
+            </select>
+            <button class="btn btn-primary" id="btn-open-create-modal">+ Create New Trip</button>
+        </div>
+    </div>
+
+    <div class="trips-grid" id="trips-grid-container">
+        <!-- Rendered dynamically by tripsModule.js -->
+    </div>
+</div>
+
+<!-- Create Trip Modal -->
+<div class="modal-backdrop" id="create-trip-modal" style="display: none;">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>Plan a New Trip</h3>
+            <button class="close-btn" id="close-trip-modal">&times;</button>
+        </div>
+        <form id="form-create-trip">
+            <div class="form-group">
+                <label>Trip Title</label>
+                <input type="text" id="trip-title" class="form-control" placeholder="e.g. Tokyo Cherry Blossom Run 2026" required>
+            </div>
+            <div class="form-group">
+                <label>Primary Destination City</label>
+                <input type="text" id="trip-destination" class="form-control" placeholder="e.g. Tokyo, Japan" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Start Date</label>
+                    <input type="date" id="trip-start-date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>End Date</label>
+                    <input type="date" id="trip-end-date" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Base Currency</label>
+                    <select id="trip-currency" class="form-control">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="GBP">GBP (£)</option>
+                        <option value="JPY">JPY (¥)</option>
+                        <option value="INR">INR (₹)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Total Budget Limit</label>
+                    <input type="number" id="trip-budget" class="form-control" placeholder="2500" value="2500">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" id="btn-cancel-trip">Cancel</button>
+                <button type="submit" class="btn btn-primary">Create Trip & Build Itinerary</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/modules/tripsModule.js') }}"></script>
+{% endblock %}

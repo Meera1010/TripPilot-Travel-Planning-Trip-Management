@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block page_title %}Travel Analytics & CO₂ Carbon Emission Footprint{% endblock %}
+
+{% block content %}
+<div class="analytics-workspace">
+    <div class="analytics-row">
+        <div class="card chart-card">
+            <div class="card-header">
+                <h3>Expense Category Spending Breakdown</h3>
+            </div>
+            <div class="card-body">
+                <div id="chart-spend-breakdown" style="height: 320px;"></div>
+            </div>
+        </div>
+
+        <div class="card chart-card">
+            <div class="card-header">
+                <h3>Travel Transport Carbon CO₂ Footprint</h3>
+            </div>
+            <div class="card-body">
+                <div id="chart-carbon-footprint" style="height: 320px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/modules/analyticsModule.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block page_title %}Design Approval Workflow Pipeline{% endblock %}
+
+{% block content %}
+<div id="workflow-wrapper">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+    <div>
+      <h2 style="font-size:1.4rem;font-weight:700;">Design Approval Pipeline</h2>
+      <p style="font-size:0.875rem;color:var(--text-secondary);">Multi-stage approval process: Concept Review → BOM Fabric Verification → Executive Sign-off</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-weight:600;" id="wf-design-title">Design Workflow</span>
+      <span id="wf-status-badge" class="badge badge-review">IN REVIEW</span>
+    </div>
+  </div>
+
+  <div id="wf-steps-list">
+    <!-- Loaded dynamically -->
+  </div>
+</div>
+{% endblock %}
